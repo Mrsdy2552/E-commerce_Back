@@ -1,6 +1,5 @@
 package com.e_commerce_crud.e_commers.controllers;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +26,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/OrderItem")
+@CrossOrigin(origins = "*")
 public class order_itemsController {
 
     @Autowired
@@ -86,6 +87,7 @@ public class order_itemsController {
     @GetMapping("/orderfull/{id}")
     public ResponseEntity<?> getfindByOrderId(@PathVariable long id) {
         List<OrderItems> orderItems = service.finAllByIdOrder(id);
+
         if (orderItems.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

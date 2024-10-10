@@ -1,16 +1,11 @@
 package com.e_commerce_crud.e_commers.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 @Table(name = "order_items")
@@ -29,12 +24,9 @@ public class OrderItems {
     @NotNull
     private Integer price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id", nullable = false)
-    @JsonBackReference
-    private Orders order;
+    @NotNull
+    private Integer order_id;
 
-    // Getters y setters
     public Long getId() {
         return id;
     }
@@ -67,12 +59,18 @@ public class OrderItems {
         this.price = price;
     }
 
-    public Orders getOrder() {
-        return order;
+    public Integer getOrder_id() {
+        return order_id;
     }
 
-    public void setOrder(Orders order) {
-        this.order = order;
+    public void setOrder_id(Integer order_id) {
+        this.order_id = order_id;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItems [id=" + id + ", product_id=" + product_id + ", quantity=" + quantity + ", price=" + price
+                + ", order_id=" + order_id + "]";
     }
 
 }

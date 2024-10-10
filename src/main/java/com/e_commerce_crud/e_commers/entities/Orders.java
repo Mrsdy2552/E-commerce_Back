@@ -2,19 +2,10 @@ package com.e_commerce_crud.e_commers.entities;
 
 import java.time.LocalDateTime;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -37,9 +28,6 @@ public class Orders {
 
     @NotBlank
     private String status;
-
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<OrderItems> orderItems;
 
     // Getters y setters
     public Long getId() {
@@ -80,14 +68,6 @@ public class Orders {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public List<OrderItems> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(List<OrderItems> orderItems) {
-        this.orderItems = orderItems;
     }
 
 }

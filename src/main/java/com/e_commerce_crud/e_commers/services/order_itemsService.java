@@ -2,11 +2,11 @@ package com.e_commerce_crud.e_commers.services;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.e_commerce_crud.e_commers.entities.OrderItems;
 import com.e_commerce_crud.e_commers.entities.OrderItems;
 import com.e_commerce_crud.e_commers.repositories.order_itemsRepository;
 
@@ -40,7 +40,7 @@ public class order_itemsService implements order_itemsServiceImpl {
         Optional<OrderItems> order_itemsdb = repository.findById(id);
         if (order_itemsdb.isPresent()) {
             OrderItems ordens = order_itemsdb.orElseThrow();
-            ordens.setOrder(order_items.getOrder());
+            ordens.setOrder_id(order_items.getOrder_id());
             ordens.setPrice(order_items.getPrice());
             ordens.setProduct_id(order_items.getProduct_id());
             ordens.setQuantity(order_items.getQuantity());
@@ -64,10 +64,7 @@ public class order_itemsService implements order_itemsServiceImpl {
     @Override
     public List<OrderItems> finAllByIdOrder(Long IdOrder) {
         return repository.findByOrderId(IdOrder);
+
     }
 
-    // @Override
-    // public List<OrderItems> findByOrderId(Long orderId) {
-    //     throw new UnsupportedOperationException("Not supported yet.");
-    // }
 }

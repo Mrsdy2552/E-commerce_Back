@@ -28,7 +28,7 @@ public class Customers {
     private String email;
 
     @NotNull
-    private Integer phone;
+    private String phone;
 
     @NotBlank
     private String address;
@@ -75,11 +75,11 @@ public class Customers {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
