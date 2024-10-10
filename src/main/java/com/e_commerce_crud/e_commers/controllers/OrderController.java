@@ -26,8 +26,8 @@ import com.e_commerce_crud.e_commers.services.OrderService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/Order")
 @CrossOrigin(origins = "*")
+@RequestMapping("/api/Order")
 public class OrderController {
 
     @Autowired

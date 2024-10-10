@@ -24,12 +24,11 @@ public class Orders {
     private LocalDateTime order_date;
 
     @NotNull
-    private Integer total;
+    private Long total;
 
     @NotBlank
     private String status;
 
-    // Getters y setters
     public Long getId() {
         return id;
     }
@@ -54,11 +53,11 @@ public class Orders {
         this.order_date = order_date;
     }
 
-    public Integer getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 
